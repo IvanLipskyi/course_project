@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update bicycle</title>
+</head>
+<body>
+<div>
+    <h2>Update bicycle</h2>
+    <div>
+        <div>
+            <form action="#" th:action="@{/update/{id}(id=${bicycle.id})}" th:object="${bicycle}" method="post">
+                <div>
+                    <div>
+                        <label for="bicycleName">Bicycle_name</label>
+                        <input type="text" th:field="*{bicycleName}" id="bicycleName" placeholder="Bicycle_name">
+                        <span th:if="${#fields.hasErrors('bicycleName')}" th:errors="*{bicycleName}"></span>
+                    </div>
+                    <div>
+                        <label for="brandName">Brand_name</label>
+                        <input type="text" th:field="*{brandName}" id="brandName" placeholder="Brand_name">
+                        <span th:if="${#fields.hasErrors('brandName')}" th:errors="*{brandName}"></span>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <input type="submit" value="Update bicycle">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

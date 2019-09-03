@@ -11,14 +11,39 @@
             <form action="#" th:action="@{/add}" th:object="${bicycleAdd}" method="post">
                 <div>
                     <div>
-                        <label for="bicycleName">Bicycle_name</label>
-                        <input type="text" th:field="*{bicycleName}" id="bicycleName" placeholder="Bicycle_name">
+                        <label for="bicycleName">Name</label>
+                        <input type="text" th:field="*{bicycleName}" id="bicycleName" placeholder="Name">
                         <span th:if="${#fields.hasErrors('bicycleName')}" th:errors="*{bicycleName}"></span>
                     </div>
                     <div>
-                        <label for="brandName">Brand_name</label>
-                        <input type="text" th:field="*{brandName}" id="brandName" placeholder="Bicycle_brand">
+                        <label for="brandName">Brand</label>
+                        <input type="text" th:field="*{brandName}" id="brandName" placeholder="Brand">
                         <span th:if="${#fields.hasErrors('brandName')}" th:errors="*{brandName}"></span>
+                    </div>
+                    <div>
+                        <label for="bicycleType">Type</label>
+                        <input type="text" th:field="*{bicycleType}" id="bicycleType" placeholder="Type">
+                        <span th:if="${#fields.hasErrors('bicycleType')}" th:errors="*{bicycleType}"></span>
+                    </div>
+                    <div>
+                        <label for="materialType">Material</label>
+                        <input type="text" th:field="*{materialType}" id="materialType" placeholder="Material">
+                        <span th:if="${#fields.hasErrors('materialType')}" th:errors="*{materialType}"></span>
+                    </div>
+                    <div>
+                        <label for="frameSize">Frame</label>
+                        <input type="number" min="0" max="50" step="1" th:field="*{frameSize}" id="frameSize" placeholder="Inches">
+                        <span th:if="${#fields.hasErrors('frameSize')}" th:errors="*{frameSize}"></span>
+                    </div>
+                    <div>
+                        <label for="price">Price</label>
+                        <input type="number" min="0" max="200000" step="1" th:field="*{price}" id="price" placeholder="UAH">
+                        <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+                    </div>
+                    <div>
+                        <label for="quantity">Quantity</label>
+                        <input type="number" min="0" max="1000" step="1" th:field="*{quantity}" id="quantity" placeholder="Quantity">
+                        <span th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></span>
                     </div>
                 </div>
                 <div>

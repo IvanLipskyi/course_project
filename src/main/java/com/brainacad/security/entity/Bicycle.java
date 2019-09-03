@@ -1,13 +1,15 @@
 package com.brainacad.security.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 @Data
-@Table (name="Bicycles")
+@NoArgsConstructor
+@Table (name="Bicycle")
 public class Bicycle {
 
     @Id
@@ -22,23 +24,22 @@ public class Bicycle {
     @Enumerated(EnumType.STRING)
     private BrandName brandName;
 
-//    @Column(name = "bicycle_type", nullable = false)
-//    @Enumerated(EnumType.STRING)
-//    private BicycleType bicycleType;
-//
-//    @Column(name = "material_type", nullable = false)
-//    @Enumerated(EnumType.STRING)
-//    private MaterialType materialType;
-//
-//    @Column(name = "frame_size")
-//    private int frameSize;
-//
-//
-//    @Column (name = "price", nullable = false)
-//    private BigDecimal price;
-//
-//    @Column (name = "quantity")
-//    private int quantity;
+    @Column(name = "bicycle_type", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private BicycleType bicycleType;
+
+    @Column(name = "material_type", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private MaterialType materialType;
+
+    @Column(name = "frame_size", nullable = false)
+    private Integer frameSize;
+
+    @Column (name = "price", nullable = false)
+    private Integer price;
+
+    @Column (name = "quantity")
+    private Integer quantity;
 
 
 }

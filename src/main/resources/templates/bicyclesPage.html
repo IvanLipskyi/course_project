@@ -1,29 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title th:utext="${title}"></title>
 </head>
 <body>
 <th:block th:include="/fragments/menu"></th:block>
-<h2>Welcome : <span th:utext="${message}"></span></h2>
+<h2>Welcome! <span th:utext="${message}"></span></h2>
 <div>
     <div>
         <h2 th:if="${bicycles eq null or bicycles.empty}">No bicycles yet!</h2>
         <div th:if="${bicycles ne null}">
-            <h2>bicycles</h2>
-            <table>
+            <h2>Bicycles table</h2>
+            <table style="width: 100%;color: sienna;border-color: burlywood;" border="2" cellpadding="16">
                 <thead>
-                <tr>
-                    <th>Bicycle_name</th>
-                    <th>Brand_name</th>
+                <tr style = "font-size: 24px">
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Type</th>
+                    <th>Material</th>
+                    <th>Frame</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="bike : ${bicycles}">
+                <tr style = "font-size: 24px" th:each="bike : ${bicycles}">
                     <td th:text="${bike.bicycleName}"></td>
                     <td th:text="${bike.brandName}"></td>
+                    <td th:text="${bike.bicycleType}"></td>
+                    <td th:text="${bike.materialType}"></td>
+                    <td th:text="${bike.frameSize}"></td>
+                    <td th:text="${bike.price}"></td>
+                    <td th:text="${bike.quantity}"></td>
                     <td><a th:href="@{/edit/{id}(id=${bike.id})}">Edit</a></td>
                     <td><a th:href="@{/delete/{id}(id=${bike.id})}">Delete</a></td>
                 </tr>
@@ -31,6 +42,11 @@
             </table>
         </div>
         <p><a href="/new">Add</a></p>
+        <h2>Search by name</h2>
+        <form style="position:relative" th:action="@{/bicycles/find/by_name}" method="get">
+            <input type="text" name="search" th:value="${search}" class="form-control" />
+            <button type="submit" class="btn btn-success">Search</button>
+        </form>
     </div>
 </div>
 </body>

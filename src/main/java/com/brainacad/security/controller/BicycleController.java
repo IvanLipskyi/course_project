@@ -2,6 +2,7 @@ package com.brainacad.security.controller;
 
 import com.brainacad.security.dao.BicycleRepository;
 import com.brainacad.security.entity.Bicycle;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,6 +14,7 @@ import java.beans.Transient;
 @Controller
 public class BicycleController {
 private final BicycleRepository bicycleRepository;
+
 
     public BicycleController(BicycleRepository bicycleRepository) {
         this.bicycleRepository = bicycleRepository;
@@ -68,6 +70,12 @@ private final BicycleRepository bicycleRepository;
     public String deleteClient(@PathVariable("id") long id, Model model) {
         bicycleRepository.deleteById(id);
         model.addAttribute("bicycles", bicycleRepository.findAll());
+        return "bicyclesPage";
+    }
+
+    @RequestMapping(value = "/bicycles/find/by_name", method = RequestMethod.GET)
+    public String sortByBicycleByName(@RequestParam (value = "search", required = true) String bicycleName, Model model) {
+        model.addAttribute("bicycles", bicycleRepository.findByBicycleName(bicycleName));
         return "bicyclesPage";
     }
 

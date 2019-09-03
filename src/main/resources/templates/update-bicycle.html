@@ -20,6 +20,31 @@
                         <input type="text" th:field="*{brandName}" id="brandName" placeholder="Brand_name">
                         <span th:if="${#fields.hasErrors('brandName')}" th:errors="*{brandName}"></span>
                     </div>
+                    <div>
+                        <label for="bicycleType">Bicycle_type</label>
+                        <input type="text" th:field="*{bicycleType}" id="bicycleType" placeholder="Bicycle_type">
+                        <span th:if="${#fields.hasErrors('bicycleType')}" th:errors="*{bicycleType}"></span>
+                    </div>
+                    <div>
+                    <label for="materialType">Material_type</label>
+                    <input type="text" th:field="*{materialType}" id="materialType" placeholder="Material_type">
+                    <span th:if="${#fields.hasErrors('materialType')}" th:errors="*{materialType}"></span>
+                    </div>
+                    <div>
+                        <label for="frameSize">Frame</label>
+                        <input type="number" min="0" max="50" step="1" th:field="*{frameSize}" id="frameSize" placeholder="Inches">
+                        <span th:if="${#fields.hasErrors('frameSize')}" th:errors="*{frameSize}"></span>
+                    </div>
+                    <div>
+                        <label for="price">Price</label>
+                        <input type="number" min="0" max="200000" step="1" th:field="*{price}" id="price" placeholder="UAH">
+                        <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+                    </div>
+                    <div>
+                        <label for="quantity">Quantity</label>
+                        <input type="number" min="0" max="1000" step="1" th:field="*{quantity}" id="quantity" placeholder="Quantity">
+                        <span th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></span>
+                    </div>
                 </div>
                 <div>
                     <div>
